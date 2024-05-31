@@ -1,10 +1,10 @@
 <div>
-  <button>
+  <button (click)="OnSelectUser()">
     <img
-    [src]="imagePath "
-    [alt]="selectUser.name"
+    [src]="imagePath"
+    [alt]="name"
     />
-    <span>{{ selectUser.name }}</span>
+    <span>{{ name }}</span>
   </button>
 </div>
 
