@@ -9,5 +9,5 @@ import { DUMMY_USERS } from '../user/dummy-users';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-@Input({required: true}) name!: string;
+@Input() name?: string;
 }

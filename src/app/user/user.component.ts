@@ -4,6 +4,18 @@ import { TasksComponent } from '../tasks/tasks.component';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
+// type User = {
+//   id: string;
+//   avatar: string;
+//   name: string;
+//  };
+
+interface User {
+  id: string;
+  avatar: string;
+  name: string;
+ };
+ 
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -14,19 +26,14 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
 
 export class UserComponent {
-  @Input({required : true}) id!: string;
-  @Input({required : true}) avatar!: string;
-  @Input({required: true}) name!: string;
+   @Input({required: true}) users!: User;
   @Output() select = new EventEmitter();
-  // select = output<string>();
-
-
 
     get imagePath() {
-     return 'assets/users/'  + this.avatar;
+     return 'assets/users/'  + this.users.avatar;
     }
 
     OnSelectUser() {
-      this.select.emit(this.id);
+      this.select.emit(this.users.id);
     }
 }
