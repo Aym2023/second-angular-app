@@ -10,5 +10,7 @@ import {Component} from '@angular/core';
 
 
 
-export class HeaderComponent{}
+export class HeaderComponent{
+  
+}
 
