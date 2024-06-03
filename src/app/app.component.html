@@ -1,6 +1,5 @@
 <app-Header />
-
-    <main>
+<main>
       <ul id='users'>
         @for (user of users; track user.id) {
           <li>
@@ -8,12 +7,10 @@
         </li> 
       }
       </ul>
-      
-      @if (selectedUser) {
+      @if(selectedUser) {
         <app-tasks    [userId]='selectedUser.id'  [name]='selectedUser.name' />
       }
-        else {
+        else 
           <p id="fallback"> Select a User to see theri tasks! </p>
-        }
-      
+    
     </main>

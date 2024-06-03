@@ -2,6 +2,7 @@ import { Component,   Input } from '@angular/core';
 import { DUMMY_USERS } from '../user/dummy-users';
 import {TaskComponent} from './task/task.component';
 import {NewTaskComponent} from './new-task/new-task.component';
+import {type NewTaskData} from './task/task.model';
 
 
 @Component({
@@ -12,8 +13,8 @@ import {NewTaskComponent} from './new-task/new-task.component';
   imports: [TaskComponent, NewTaskComponent]
 })
 export class TasksComponent {
-  @Input({required:true}) userId?: string;
-  @Input({required:true}) name?: string;
+  @Input({required:true}) userId!: string;
+  @Input({required:true}) name!: string;
   isAddingTask = false;
 
 tasks = [
@@ -56,5 +57,17 @@ this.isAddingTask = true;
 
 onCancelAddTask () {
   this.isAddingTask = false;
+}
+
+onAddTask(newdata: NewTaskData) {
+  this.tasks.unshift({
+    id: new Date().getTime().toString(),
+    userId: this.userId,
+    title: newdata.title,
+    summary: newdata.summary,
+    dueDate: newdata.date,
+  })
+
+ this.isAddingTask = false;
 }
 }
